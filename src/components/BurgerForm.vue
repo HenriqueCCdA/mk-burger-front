@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Message :msg="msg" v-show="msg" />
+    <MessageVue :msg="msg" v-show="msg" />
     <form id="burger-form" @submit="createBurger">
       <div class="input-container">
         <label for="nome">Nome do cliente:</label>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import Message from './Message.vue'
+import MessageVue from './MessageVue.vue'
 export default {
   name: 'BurgerForm',
   data() {
@@ -107,7 +107,7 @@ export default {
     this.getIngredientes()
   },
   components: {
-    Message
+    MessageVue
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div id="burger-table">
-    <Message :msg="msg" v-show="msg" />
+    <MessageVue :msg="msg" v-show="msg" />
     <div>
       <div id="burger-table-heading">
         <div class="order-id">#:</div>
@@ -42,10 +42,10 @@
 </template>
 
 <script>
-import Message from './Message.vue'
+import MessageVue from './MessageVue.vue'
 
 export default {
-  name: 'Dashboard',
+  name: 'DashboardVue',
   data() {
     return {
       burgers: null,
@@ -54,7 +54,7 @@ export default {
       msg: null
     }
   },
-  components: { Message },
+  components: { MessageVue },
   methods: {
     async getPedidos() {
       const req = await fetch('http://localhost:3000/burgers')
@@ -70,7 +70,7 @@ export default {
       this.status = data
     },
     async deleteBurger(id) {
-      const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+      await fetch(`http://localhost:3000/burgers/${id}`, {
         method: 'DELETE'
       })
 

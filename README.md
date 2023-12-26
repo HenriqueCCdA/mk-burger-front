@@ -2,6 +2,9 @@
 
 Frontend simples feito em `vuejs`. Objetivo desse projeto e ser integrado com diferentes backends.
 
+> Projeto é baseado no curso: [curso](https://www.youtube.com/playlist?list=PLnDvRpP8BnezDglaAvtWgQXzsOmXUuRHL)
+
+
 ## Project Setup
 
 ```sh

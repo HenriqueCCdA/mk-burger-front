@@ -6,12 +6,12 @@
 
 <script>
 export default {
-  name: 'Banner'
+  name: 'BannerVue'
 }
 </script>
 
 <style scoped>
-#main-banner {
+#main-BannerVue {
   background-image: url('/public/img/burger.jpg');
   background-position: 0 -250px;
   background-size: cover;

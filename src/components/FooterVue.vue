@@ -1,17 +1,17 @@
 <template>
-  <footer id="footer">
+  <FooterVue id="FooterVue">
     <p>Make Your Burger &copy; 2023</p>
-  </footer>
+  </FooterVue>
 </template>
 
 <script>
 export default {
-  name: 'Footer'
+  name: 'FooterVueVue'
 }
 </script>
 
 <style scoped>
-#footer {
+#FooterVue {
   height: 200px;
   background-color: #222;
   border-top: 4px solid #111;
