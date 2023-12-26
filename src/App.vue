@@ -1,16 +1,16 @@
 <template>
-  <NavBar :logo="logo_src" :alt="app_name" />
+  <NavbarVue :logo="logo_src" :alt="app_name" />
   <router-view />
-  <Footer />
+  <FooterVue />
 </template>
 
 <script>
-import NavBar from '@/components/Navbar.vue'
-import Footer from '@/components/Footer.vue'
+import NavbarVue from '@/components/NavbarVue.vue'
+import FooterVue from '@/components/FooterVue.vue'
 export default {
   components: {
-    NavBar,
-    Footer
+    NavbarVue,
+    FooterVue
   },
   data() {
     return {

@@ -1,12 +1,12 @@
 <template>
-  <div class="message-container">
+  <div class="MessageVue-container">
     <p>{{ msg }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Message',
+  name: 'MessageVue',
   props: {
     msg: String
   }
