@@ -1,5 +1,5 @@
 <template>
-  <div class="MessageVue-container">
+  <div class="message-container">
     <p>{{ msg }}</p>
   </div>
 </template>

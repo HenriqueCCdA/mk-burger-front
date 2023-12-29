@@ -11,7 +11,7 @@
         <label for="pao">Escolha o pão:</label>
         <select name="pao" id="pao" v-model="pao">
           <option value="">Selecione o seu pão</option>
-          <option v-for="pao in paes" :key="pao.id" :value="pao.tipo">{{ pao.tipo }}</option>
+          <option v-for="pao in paes" :key="pao.id" :value="pao.id">{{ pao.tipo }}</option>
         </select>
       </div>
 
@@ -19,7 +19,7 @@
         <label for="carne">Escolha a carne do seu Burger:</label>
         <select name="carne" id="carne" v-model="carne">
           <option value="">Selecione o seu pão</option>
-          <option v-for="carne in carnes" :key="carne.id" :value="carne.tipo">
+          <option v-for="carne in carnes" :key="carne.id" :value="carne.id">
             {{ carne.tipo }}
           </option>
         </select>
@@ -29,7 +29,7 @@
         <label id="opcionais-title" for="opcionais">Selecione os opcionais:</label>
 
         <div class="checkbox-container" v-for="opcional in opcionaisdata" :key="opcional.id">
-          <input type="checkbox" name="opcionais" v-model="opcionais" :value="opcional.tipo" />
+          <input type="checkbox" name="opcionais" v-model="opcionais" :value="opcional.id" />
           <span>{{ opcional.tipo }}</span>
         </div>
       </div>
@@ -54,13 +54,13 @@ export default {
       pao: null,
       carne: null,
       opcionais: [],
-      status: 'Solicitado',
+      status: 1,
       msg: null
     }
   },
   methods: {
     async getIngredientes() {
-      const req = await fetch('http://localhost:3000/ingredientes')
+      const req = await fetch('http://localhost:8000/ingredientes/')
 
       const data = await req.json()
 
@@ -76,12 +76,12 @@ export default {
         carne: this.carne,
         pao: this.pao,
         opcionais: Array.from(this.opcionais),
-        status: 'Solicitado'
+        status: 1,
       }
 
       const dataJson = JSON.stringify(data)
 
-      const req = await fetch('http://localhost:3000/burgers', {
+      const req = await fetch('http://localhost:8000/burgers/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: dataJson
@@ -94,8 +94,6 @@ export default {
 
       // limpar msg
       setTimeout(() => (this.msg = null), 3000)
-
-      console.log(res)
 
       this.nome = ''
       this.carne = ''

@@ -15,7 +15,7 @@
       <div class="burger-table-row" v-for="burger in burgers" :key="burger.id">
         <div class="order-number">{{ burger.id }}</div>
         <div>{{ burger.nome }}</div>
-        <div>{{ burger.pao }}Pão de Trigo</div>
+        <div>{{ burger.pao }}</div>
         <div>{{ burger.carne }}</div>
         <div>
           <ul>
@@ -23,12 +23,12 @@
           </ul>
         </div>
         <div>
-          <select name="status" clas="status" @change="updateBurger($event, burger.id)">
+          <select name="status" class="status" @change="updateBurger($event, burger.id)">
             <option value="">Selecione</option>
             <option
               v-for="s in status"
               :key="s.id"
-              :value="s.tipo"
+              :value="s.id"
               :selected="burger.status == s.tipo"
             >
               {{ s.tipo }}
@@ -57,20 +57,19 @@ export default {
   components: { MessageVue },
   methods: {
     async getPedidos() {
-      const req = await fetch('http://localhost:3000/burgers')
+      const req = await fetch('http://localhost:8000/burgers/')
       const data = await req.json()
       this.burgers = data
-      console.log(this.burgers)
       // resgatar os status
       this.getStatus()
     },
     async getStatus() {
-      const req = await fetch('http://localhost:3000/status')
+      const req = await fetch('http://localhost:8000/status/')
       const data = await req.json()
       this.status = data
     },
     async deleteBurger(id) {
-      await fetch(`http://localhost:3000/burgers/${id}`, {
+      await fetch(`http://localhost:8000/burgers/${id}/`, {
         method: 'DELETE'
       })
 
@@ -83,7 +82,7 @@ export default {
     async updateBurger(event, id) {
       const option = event.target.value
       const dataJson = JSON.stringify({ status: option })
-      const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+      const req = await fetch(`http://localhost:8000/burgers/${id}/`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: dataJson

@@ -79,27 +79,15 @@
   ],
   "burgers": [
     {
-      "nome": "Matheus Battisti",
-      "carne": "Picanha",
+      "nome": "Henrique",
+      "carne": "Veggie burger",
       "pao": "Italiano Branco",
       "opcionais": [
         "Bacon",
-        "Salame",
-        "Cebola roxa"
+        "Salame"
       ],
       "status": "Solicitado",
       "id": 1
-    },
-    {
-      "nome": "João Coelho",
-      "carne": "Maminha",
-      "pao": "3 Queijos",
-      "opcionais": [
-        "Salame",
-        "Cebola roxa"
-      ],
-      "status": "Finalizado",
-      "id": 4
     }
   ]
 }
